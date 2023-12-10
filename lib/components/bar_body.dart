@@ -48,25 +48,32 @@ class BarBody extends BodyComponent with KeyboardHandler, ContactCallbacks {
 
   @override
   void update(double dt) {
-    if (tildInvert) {
-      body.setTransform(
-          Vector2((body.position.x + move * dt * speedBar).clamp(-limit, limit),
-              body.position.y),
-          _tiltRightBar.toDouble() * .1 * -1);
-    } else {
-      body.setTransform(
-          Vector2((body.position.x + move * dt * speedBar).clamp(-limit, limit),
-              body.position.y),
-          _tiltRightBar.toDouble() * .1);
-    }
+    body.setTransform(
+        Vector2((body.position.x + move * dt * speedBar).clamp(-limit, limit),
+            body.position.y),
+        _tiltRightBar.toDouble() * .1 * (tildInvert ? -1 : 1));
+
+    // if (tildInvert) {
+    //   body.setTransform(
+    //       Vector2((body.position.x + move * dt * speedBar).clamp(-limit, limit),
+    //           body.position.y),
+    //       _tiltRightBar.toDouble() * .1 * -1);
+    // } else {
+    //   body.setTransform(
+    //       Vector2((body.position.x + move * dt * speedBar).clamp(-limit, limit),
+    //           body.position.y),
+    //       _tiltRightBar.toDouble() * .1);
+    // }
 
     if (_tiltRightControl != _tiltRightBar) {
       _tiltRightBar = _tiltRightControl;
-      if (tildInvert) {
-        body.setTransform(body.position, _tiltRightBar.toDouble() * .1 * -1);
-      } else {
-        body.setTransform(body.position, _tiltRightBar.toDouble() * .1);
-      }
+      body.setTransform(
+          body.position, _tiltRightBar.toDouble() * .1 * (tildInvert ? -1 : 1));
+      // if (tildInvert) {
+      //   body.setTransform(body.position, _tiltRightBar.toDouble() * .1 * -1);
+      // } else {
+      //   body.setTransform(body.position, _tiltRightBar.toDouble() * .1);
+      // }
     }
 
     super.update(dt);
