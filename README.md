@@ -4,7 +4,7 @@ Repositorio base para comenzar a desarrollar videojuegos 2D con **Flutter**, **F
 
 Puedes ver una demo del proyecto en:
 
-https://www.desarrollolibre.net/public/flutter/forge/angrybirds03/
+https://www.desarrollolibre.net/public/flutter/forge/pong05/
 
 ---
 
